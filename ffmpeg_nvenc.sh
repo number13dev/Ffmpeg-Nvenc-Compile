@@ -54,7 +54,7 @@ make distclean
 
 #Compile libx265
 compileLibx265(){
-sudo apt-get install cmake mercurial
+sudo apt-get install cmake mercurial -y
 cd ~/ffmpeg_sources
 hg clone https://bitbucket.org/multicoreware/x265
 cd ~/ffmpeg_sources/x265/build/linux
@@ -67,7 +67,7 @@ make distclean
 #Compile libfdk-acc
 compileLibfdkcc(){
 echo "Compiling libfdk-cc"
-sudo apt-get install unzip
+sudo apt-get install unzip -y
 cd ~/ffmpeg_sources
 wget -O fdk-aac.zip https://github.com/mstorsjo/fdk-aac/zipball/master
 unzip fdk-aac.zip
@@ -82,7 +82,7 @@ make distclean
 #Compile libmp3lame
 compileLibMP3Lame(){
 echo "Compiling libmp3lame"
-sudo apt-get install nasm
+sudo apt-get install nasm -y
 cd ~/ffmpeg_sources
 wget http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
 tar xzvf lame-3.99.5.tar.gz
