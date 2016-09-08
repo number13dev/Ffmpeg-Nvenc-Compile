@@ -16,12 +16,12 @@ sudo apt-get -y --force-yes install autoconf automake build-essential libass-dev
 installSDK(){
 echo "Installing the nVidia NVENC SDK."
 cd ~/ffmpeg_sources
-#mkdir SDK
-#cd SDK
-#wget http://developer.download.nvidia.com/compute/nvenc/v5.0/nvenc_5.0.1_sdk.zip -O sdk.zip
-#unzip sdk.zip
-#cd nvenc_5.0.1_sdk
-#sudo cp Samples/common/inc/* /usr/include/
+mkdir SDK
+cd SDK
+wget http://developer.download.nvidia.com/assets/cuda/files/nvidia_video_sdk_6.0.1.zip -O sdk.zip
+unzip sdk.zip
+cd nvidia_video_sdk_6.0.1
+sudo cp Samples/common/inc/* /usr/include/
 }
 
 #Compile yasm
