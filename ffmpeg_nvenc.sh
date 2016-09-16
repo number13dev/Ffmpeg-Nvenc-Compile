@@ -52,7 +52,7 @@ make distclean
 
 #Compile libx265
 compileLibX265(){
-echo "Compiling libx264"
+echo "Compiling libx265"
 cd ~/ffmpeg_sources
 hg clone https://bitbucket.org/multicoreware/x265
 cd ~/ffmpeg_sources/x265/build/linux
@@ -126,12 +126,12 @@ cd ~/ffmpeg_sources
 #tar xjvf ffmpeg-snapshot.tar.bz2
 #cd ffmpeg
 #git clone https://github.com/FFmpeg/FFmpeg.git ffmpeg
-    ffmpeg_version="3.1.1"
+    ffmpeg_version="3.1.3"
     if [ ! -f  ffmpeg-${ffmpeg_version}.tar.bz2 ]; then
         wget http://ffmpeg.org/releases/ffmpeg-${ffmpeg_version}.tar.bz2
     fi
     tar xjf ffmpeg-${ffmpeg_version}.tar.bz2
-    wget http://sada5.sakura.ne.jp/PAX/patch/ffmpeg/ffmpeg-modified-v2-n3.1.1.patch
+    wget http://sada5.sakura.ne.jp/PAX/patch/ffmpeg/ffmpeg-modified-v2-n3.1.3.patch
     cd ffmpeg-${ffmpeg_version}
     patch -p1 < ../ffmpeg-modified-v2-n3.1.1.patch
 #cd ffmpeg
@@ -145,6 +145,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --extra-cflags="-I$HOME/ffmpeg_build/include" \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --bindir="$HOME/sbin" \
+  --enable-filter=hwupload_cuda,scale_npp,format,interp_algo \
   --enable-gpl \
   --enable-pthreads \
   --enable-libass \
