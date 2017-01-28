@@ -108,9 +108,9 @@ make distclean
 compileLibPvx(){
 echo "Compiling libvpx"
 cd ~/ffmpeg_sources
-wget http://webm.googlecode.com/files/libvpx-v1.3.0.tar.bz2
-tar xjvf libvpx-v1.3.0.tar.bz2
-cd libvpx-v1.3.0
+wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.6.1.tar.bz2
+tar xjvf libvpx-1.6.1.tar.bz2
+cd libvpx-1.6.1
 PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --disable-examples
 PATH="$HOME/bin:$PATH" make
 make install
