@@ -21,7 +21,7 @@ cd SDK
 wget http://developer.download.nvidia.com/assets/cuda/files/nvidia_video_sdk_6.0.1.zip -O sdk.zip
 unzip sdk.zip
 cd nvidia_video_sdk_6.0.1
-sudo cp -r Samples/common/inc/* /usr/include/
+sudo cp Samples/common/inc/* /usr/include/
 }
 
 #Compile yasm
@@ -130,21 +130,13 @@ cd ~/ffmpeg_sources
         wget http://ffmpeg.org/releases/ffmpeg-${ffmpeg_version}.tar.bz2
     fi
     tar xjf ffmpeg-${ffmpeg_version}.tar.bz2
-    wget http://sada5.sakura.ne.jp/PAX/patch/ffmpeg/ffmpeg-modified-v2-n3.1.3.patch
     cd ffmpeg-${ffmpeg_version}
-    patch -p1 < ../ffmpeg-modified-v2-n3.1.3.patch
-#cd ffmpeg
-#git checkout -b c917cde9cc52ad1ca89926a617f847bc9861d5a0
-#git clone https://github.com/Brainiarc7/ffmpeg_libnvenc ffmpeg00
-#cd ffmpeg00
-#chmod 777 *
 PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   --pkg-config-flags="--static" \
   --prefix="$HOME/ffmpeg_build" \
   --extra-cflags="-I$HOME/ffmpeg_build/include" \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --bindir="$HOME/sbin" \
-  --enable-filter=hwupload_cuda,scale_npp,format,interp_algo \
   --enable-gpl \
   --enable-pthreads \
   --enable-libass \
