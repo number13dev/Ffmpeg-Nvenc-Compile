@@ -21,7 +21,7 @@ cd SDK
 wget http://developer.download.nvidia.com/assets/cuda/files/nvidia_video_sdk_6.0.1.zip -O sdk.zip
 unzip sdk.zip
 cd nvidia_video_sdk_6.0.1
-sudo cp Samples/common/inc/* /usr/include/
+sudo cp -r Samples/common/inc/* /usr/include/
 }
 
 #Compile yasm
