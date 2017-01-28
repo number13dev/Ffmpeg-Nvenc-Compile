@@ -133,7 +133,7 @@ cd ~/ffmpeg_sources
     tar xjf ffmpeg-${ffmpeg_version}.tar.bz2
     wget http://sada5.sakura.ne.jp/PAX/patch/ffmpeg/ffmpeg-modified-v2-n3.1.3.patch
     cd ffmpeg-${ffmpeg_version}
-    patch -p1 < ../ffmpeg-modified-v2-n3.1.1.patch
+    patch -p1 < ../ffmpeg-modified-v2-n3.1.3.patch
 #cd ffmpeg
 #git checkout -b c917cde9cc52ad1ca89926a617f847bc9861d5a0
 #git clone https://github.com/Brainiarc7/ffmpeg_libnvenc ffmpeg00
