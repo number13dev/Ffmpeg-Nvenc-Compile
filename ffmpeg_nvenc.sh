@@ -149,7 +149,6 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-libvpx \
   --enable-libx265 \
   --enable-libx264 \
-  --enable-nonfree \
   --enable-nvenc \
   --enable-nonfree
 PATH="$HOME/bin:$PATH" make -j8
