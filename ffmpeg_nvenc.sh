@@ -7,7 +7,7 @@ rm -rf ~/ffmpeg_sources
 installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
-sudo apt-get -y --force-yes install autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
+sudo apt-get -y --force-yes install git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
   libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
   libxcb-xfixes0-dev pkg-config texi2html zlib1g-dev
 }
@@ -68,9 +68,8 @@ compileLibfdkcc(){
 echo "Compiling libfdk-cc"
 #sudo apt-get install unzip
 cd ~/ffmpeg_sources
-wget -O fdk-aac.zip https://github.com/mstorsjo/fdk-aac/zipball/master
-unzip fdk-aac.zip
-cd mstorsjo-fdk-aac*
+git clone https://github.com/mstorsjo/fdk-aac.git
+cd fdk-aac
 autoreconf -fiv
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
 make
