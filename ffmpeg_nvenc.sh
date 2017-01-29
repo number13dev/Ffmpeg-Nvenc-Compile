@@ -135,8 +135,8 @@ cd ~/ffmpeg_sources
 PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   --pkg-config-flags="--static" \
   --prefix="$HOME/ffmpeg_build" \
-  --extra-cflags="-I$HOME/ffmpeg_build/include" \
-  --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
+  --extra-cflags="-I$HOME/ffmpeg_build/include -march=skylake" \
+  --extra-ldflags="-L$HOME/ffmpeg_build/lib -march=skylake" \
   --bindir="/ffmpeg" \
   --enable-gpl \
   --enable-pthreads \
@@ -152,7 +152,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-libx264 \
   --enable-nvenc \
   --enable-nonfree
-PATH="$HOME/bin:$PATH" make -j8
+PATH="$HOME/bin:$PATH" make -j
 make install
 make distclean
 hash -r
