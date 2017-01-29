@@ -137,7 +137,6 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --extra-cflags="-I$HOME/ffmpeg_build/include" \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --bindir="$HOME/sbin" \
-  --enable-gpl \
   --enable-pthreads \
   --enable-libass \
   --enable-libfdk-aac \
