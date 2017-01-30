@@ -29,30 +29,30 @@ make distclean
 }
 
 #Compile yasm
-compileYasm(){
-echo "Compiling yasm"
-cd ~/ffmpeg_sources
-wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
-tar xzvf yasm-1.3.0.tar.gz
-cd yasm-1.3.0
-./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
-make
-make install
-make distclean
-}
+#compileYasm(){
+#echo "Compiling yasm"
+#cd ~/ffmpeg_sources
+#wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+#tar xzvf yasm-1.3.0.tar.gz
+#cd yasm-1.3.0
+#./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+#make
+#make install
+#make distclean
+#}
 
 #Compile libx264
-compileLibX264(){
-echo "Compiling libx264"
-cd ~/ffmpeg_sources
-wget http://download.videolan.org/pub/x264/snapshots/last_x264.tar.bz2
-tar xjvf last_x264.tar.bz2
-cd x264-snapshot*
-PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static --disable-shared
-PATH="$HOME/bin:$PATH" make
-make install
-make distclean
-}
+#compileLibX264(){
+#echo "Compiling libx264"
+#cd ~/ffmpeg_sources
+#wget http://download.videolan.org/pub/x264/snapshots/last_x264.tar.bz2
+#tar xjvf last_x264.tar.bz2
+#cd x264-snapshot*
+#PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static --disable-shared
+#PATH="$HOME/bin:$PATH" make
+#make install
+#make distclean
+#}
 
 #Compile ffmpeg
 compileFfmpeg(){
@@ -92,7 +92,7 @@ cd ~
 mkdir ffmpeg_sources
 installLibs
 compileLibSSH
-compileYasm
-compileLibX264
+#compileYasm
+#compileLibX264
 compileFfmpeg
 echo "Complete!"
