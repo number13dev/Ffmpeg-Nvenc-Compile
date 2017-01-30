@@ -22,7 +22,7 @@ cd ~/ffmpeg_sources
 wget https://openssl.org/source/openssl-1.0.2k.tar.gz
 tar xzvf openssl-1.0.2k.tar.gz
 cd openssl-1.0.2k
-./Configure gcc --openssldir="$HOME/etc/ssl" --libdir="$HOME/lib/ssl" no-shared
+./Configure gcc --openssldir="$HOME/etc/ssl" --libdir="$HOME/lib/ssl" shared
 make -j
 make install
 make distclean
