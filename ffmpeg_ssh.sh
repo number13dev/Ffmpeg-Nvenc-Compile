@@ -8,25 +8,24 @@ installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
 sudo apt-get -y --force-yes install libssl-dev curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
-  libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
-sudo apt-get purge -y *ssh* && sudo apt-get autoremove -y
+  libtheora-dev libtool libssh-dev libvorbis-dev pkg-config texi2html zlib1g-dev
 }
 
 #Compile libssh
-compileLibSSH(){
-echo "Compiling LibSSH"
-cd ~/ffmpeg_sources
-wget https://red.libssh.org/attachments/download/195/libssh-0.7.3.tar.xz
-tar xf libssh-0.7.3.tar.xz
-cd libssh*
-mkdir build
-cd build
-pwd
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_LIBRARIES=/usr/lib/x86_64-linux-gnu/ -DWITH_STATIC_LIB=on ..
-PATH="$HOME/bin:$PATH" make
-make install
-make distclean
-}
+#compileLibSSH(){
+#echo "Compiling LibSSH"
+#cd ~/ffmpeg_sources
+#wget https://red.libssh.org/attachments/download/195/libssh-0.7.3.tar.xz
+#tar xf libssh-0.7.3.tar.xz
+#cd libssh*
+#mkdir build
+#cd build
+#pwd
+#PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_LIBRARIES=/usr/lib/x86_64-linux-gnu/ -DWITH_STATIC_LIB=on ..
+#PATH="$HOME/bin:$PATH" make
+#make install
+#make distclean
+#}
 
 #Compile yasm
 #compileYasm(){
