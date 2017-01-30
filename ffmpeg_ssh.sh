@@ -76,12 +76,10 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --extra-ldflags="-L$HOME/ffmpeg_build/lib -march=skylake" \
   --bindir="/ffmpeg" \
   --enable-gpl \
-  --disable-vdpau \
-  --disable-ffplay \
+  --disable-ffplay --disable-ffprobe --disable-ffserver \
+  --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
   --enable-pthreads \
-  --enable-libssh \
   --enable-libx264 \
-  --disable-yasm
   --enable-nonfree
 PATH="$HOME/bin:$PATH" make -j
 make install
