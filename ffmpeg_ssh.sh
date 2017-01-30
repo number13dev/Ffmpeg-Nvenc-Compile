@@ -8,8 +8,7 @@ installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
 sudo apt-get -y --force-yes install libssl-dev curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
-  libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
-  libxcb-xfixes0-dev pkg-config texi2html zlib1g-dev
+  libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
 }
 
 #Compile libssh
@@ -76,6 +75,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --extra-ldflags="-L$HOME/ffmpeg_build/lib -march=skylake" \
   --bindir="/ffmpeg" \
   --enable-gpl \
+  --disable-ffplay \
   --enable-pthreads \
   --enable-libssh \
   --enable-libx264 \
