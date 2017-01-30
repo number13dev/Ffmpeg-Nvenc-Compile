@@ -74,6 +74,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --extra-cflags="-I$HOME/ffmpeg_build/include -march=skylake" \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib -march=skylake" \
   --bindir="/ffmpeg" \
+  --enable-static \
   --enable-gpl \
   --enable-libssh \
   --disable-yasm \
