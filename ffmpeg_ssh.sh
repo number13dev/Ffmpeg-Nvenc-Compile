@@ -64,7 +64,8 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-gpl \
   --enable-pthreads \
   --enable-libssh \
-  --enable-libx264
+  --enable-libx264 \
+  --disable-yasm
   --enable-nonfree
 PATH="$HOME/bin:$PATH" make -j
 make install
@@ -76,6 +77,7 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
+compileLibSSH
 compileLibX264
 compileFfmpeg
 echo "Complete!"
