@@ -22,7 +22,7 @@ cd ~/ffmpeg_sources
 wget https://openssl.org/source/openssl-1.0.2k.tar.gz
 tar xzvf openssl-1.0.2k.tar.gz
 cd openssl-1.0.2k
-./Configure gcc --openssldir="$HOME/etc/ssl" --libdir="$HOME/lib/ssl" shared
+./Configure gcc --openssldir="$HOME/etc/ssl" --libdir="lib" no-shared
 make -j
 make install
 make distclean
@@ -38,7 +38,7 @@ cd libssh*
 mkdir build
 cd build
 pwd
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_LIBRARIES="$HOME/lib/ssl" -DWITH_STATIC_LIB=on ..
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_ROOT_DIR="/root/etc/ssl" -DOPENSSL_LIBRARIES="/root/etc/ssl/lib" -DOPENSSL_INCLUDE_DIR="/root/etc/ssl/include" -DWITH_STATIC_LIB=on ..
 PATH="$HOME/bin:$PATH" make -j
 make install
 make distclean
