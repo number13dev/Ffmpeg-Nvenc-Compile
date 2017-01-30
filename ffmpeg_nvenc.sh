@@ -7,7 +7,7 @@ rm -rf ~/ffmpeg_sources
 installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
-sudo apt-get -y --force-yes install unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
+sudo apt-get -y --force-yes install curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
   libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
   libxcb-xfixes0-dev pkg-config texi2html zlib1g-dev
 }
@@ -82,7 +82,7 @@ compileLibMP3Lame(){
 echo "Compiling libmp3lame"
 #sudo apt-get install nasm
 cd ~/ffmpeg_sources
-wget http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+curl http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz --retry 50 -O -L
 tar xzvf lame-3.99.5.tar.gz
 cd lame-3.99.5
 ./configure --prefix="$HOME/ffmpeg_build" --enable-nasm --disable-shared
