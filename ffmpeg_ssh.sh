@@ -22,7 +22,7 @@ cd libssh*
 mkdir build
 cd build
 pwd
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" ../src
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" ..
 PATH="$HOME/bin:$PATH" make
 make install
 make distclean
