@@ -81,7 +81,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
   --enable-pthreads \
   --enable-nonfree
-PATH="$HOME/bin:$PATH" make -j
+PATH="$HOME/bin:$PATH" make -j 8
 make install
 make distclean
 hash -r
