@@ -29,9 +29,9 @@ sudo apt-get -y --force-yes install libssl-dev curl unzip cmake mercurial git au
 #make distclean
 #}
 
-Compile yasm
-compileYasm(){
-echo "Compiling yasm"
+Compile LibSSL
+compileLibSSL(){
+echo "Compiling LibSSL"
 cd ~/ffmpeg_sources
 wget https://openssl.org/source/openssl-1.0.2k.tar.gz
 tar xzvf openssl-1.0.2k.tar.gz
@@ -108,6 +108,7 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
+compileLibSSL
 compileLibSSH
 #compileYasm
 #compileLibX264
