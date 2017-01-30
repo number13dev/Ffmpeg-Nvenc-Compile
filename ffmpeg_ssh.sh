@@ -7,7 +7,7 @@ rm -rf ~/ffmpeg_sources
 installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
-sudo apt-get -y --force-yes install curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
+sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
   libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
 }
 
@@ -109,8 +109,6 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
-compileLibSSL
-compileLibSSH
 #compileYasm
 #compileLibX264
 compileFfmpeg
