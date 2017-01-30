@@ -7,7 +7,7 @@ rm -rf ~/ffmpeg_sources
 installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
-sudo apt-get -y --force-yes install openssl curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
+sudo apt-get -y --force-yes install libssl-dev curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
   libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
   libxcb-xfixes0-dev pkg-config texi2html zlib1g-dev
 }
@@ -22,7 +22,7 @@ cd libssh*
 mkdir build
 cd build
 pwd
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_ROOT_DIR=/usr/local/ssl -DOPENSSL_LIBRARIES=/usr/lib/ssl -DENABLE_SHARED:bool=off ..
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_ROOT_DIR=/usr/local/ssl -DOPENSSL_LIBRARIES=/usr/lib/x86_64-linux-gnu/ -DENABLE_SHARED:bool=off ..
 PATH="$HOME/bin:$PATH" make
 make install
 make distclean
