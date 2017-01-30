@@ -36,7 +36,7 @@ cd ~/ffmpeg_sources
 wget https://openssl.org/source/openssl-1.0.2k.tar.gz
 tar xzvf openssl-1.0.2k.tar.gz
 cd openssl-1.0.2k
-./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+./configure --openssldir=/etc/ssl --libdir=lib no-shared zlib-dynamic"
 make
 make install
 make distclean
