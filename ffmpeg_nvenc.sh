@@ -82,7 +82,7 @@ compileLibMP3Lame(){
 echo "Compiling libmp3lame"
 #sudo apt-get install nasm
 cd ~/ffmpeg_sources
-curl http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz --retry 50 -O -L
+curl http://sourceforge.mirrorservice.org/l/la/lame/lame/3.99/lame-3.99.5.tar.gz --retry 50 -O -L
 tar xzvf lame-3.99.5.tar.gz
 cd lame-3.99.5
 ./configure --prefix="$HOME/ffmpeg_build" --enable-nasm --disable-shared
