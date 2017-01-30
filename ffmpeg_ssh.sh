@@ -11,6 +11,8 @@ sudo apt-get -y --force-yes install libssl-dev curl unzip cmake mercurial git au
   libtheora-dev libtool libssh-dev libvorbis-dev pkg-config texi2html zlib1g-dev
 }
 
+
+
 #Compile libssh
 #compileLibSSH(){
 #echo "Compiling LibSSH"
@@ -26,6 +28,20 @@ sudo apt-get -y --force-yes install libssl-dev curl unzip cmake mercurial git au
 #make install
 #make distclean
 #}
+
+Compile yasm
+compileYasm(){
+echo "Compiling yasm"
+cd ~/ffmpeg_sources
+wget https://openssl.org/source/openssl-1.0.2k.tar.gz
+tar xzvf openssl-1.0.2k.tar.gz
+cd openssl-1.0.2k
+./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+make
+make install
+make distclean
+#}
+
 
 #Compile yasm
 #compileYasm(){
