@@ -22,6 +22,7 @@ cd ~/ffmpeg_sources
 wget https://openssl.org/source/openssl-1.0.2k.tar.gz
 tar xzvf openssl-1.0.2k.tar.gz
 cd openssl-1.0.2k
+export CFLAGS=-fPIC
 ./Configure gcc --openssldir="$HOME/etc/ssl" --libdir="lib" shared
 make -j
 make install
