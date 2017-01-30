@@ -17,7 +17,7 @@ compileLibSSH(){
 echo "Compiling LibSSH"
 cd ~/ffmpeg_sources
 wget https://red.libssh.org/attachments/download/195/libssh-0.7.3.tar.xz
-tar xjvf libssh-0.7.3.tar.xz
+tar xf libssh-0.7.3.tar.xz
 cd libssh*
 mkdir build
 cd build
