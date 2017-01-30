@@ -95,9 +95,9 @@ make distclean
 compileLibOpus(){
 echo "Compiling libopus"
 cd ~/ffmpeg_sources
-wget http://downloads.xiph.org/releases/opus/opus-1.1.tar.gz
-tar xzvf opus-1.1.tar.gz
-cd opus-1.1
+wget http://downloads.xiph.org/releases/opus/opus-1.1.4.tar.gz
+tar xzvf opus-1.1.4.tar.gz
+cd opus-1.1.4
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
 make
 make install
