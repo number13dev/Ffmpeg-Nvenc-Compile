@@ -13,21 +13,7 @@ sudo apt-get -y --force-yes install curl unzip cmake mercurial git autoconf auto
 
 
 
-#Compile libssh
-#compileLibSSH(){
-#echo "Compiling LibSSH"
-#cd ~/ffmpeg_sources
-#wget https://red.libssh.org/attachments/download/195/libssh-0.7.3.tar.xz
-#tar xf libssh-0.7.3.tar.xz
-#cd libssh*
-#mkdir build
-#cd build
-#pwd
-#PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_LIBRARIES=/usr/lib/x86_64-linux-gnu/ -DWITH_STATIC_LIB=on ..
-#PATH="$HOME/bin:$PATH" make
-#make install
-#make distclean
-#}
+
 
 Compile LibSSL
 compileLibSSL(){
@@ -36,12 +22,27 @@ cd ~/ffmpeg_sources
 wget https://openssl.org/source/openssl-1.0.2k.tar.gz
 tar xzvf openssl-1.0.2k.tar.gz
 cd openssl-1.0.2k
-./configure --openssldir=/etc/ssl --libdir=lib no-shared zlib-dynamic"
+./configure gcc --openssldir="$HOME/etc/ssl" --libdir="$HOME/lib/ssl" no-shared
 make
 make install
 make distclean
 }
 
+Compile libssh
+compileLibSSH(){
+echo "Compiling LibSSH"
+cd ~/ffmpeg_sources
+wget https://red.libssh.org/attachments/download/195/libssh-0.7.3.tar.xz
+tar xf libssh-0.7.3.tar.xz
+cd libssh*
+mkdir build
+cd build
+pwd
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DOPENSSL_LIBRARIES="$HOME/lib/ssl" -DWITH_STATIC_LIB=on ..
+PATH="$HOME/bin:$PATH" make
+make install
+make distclean
+}
 
 #Compile yasm
 #compileYasm(){
