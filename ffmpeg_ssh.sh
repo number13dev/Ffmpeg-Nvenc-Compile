@@ -79,7 +79,6 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --disable-ffplay --disable-ffprobe --disable-ffserver \
   --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
   --enable-pthreads \
-  --enable-libx264 \
   --enable-nonfree
 PATH="$HOME/bin:$PATH" make -j
 make install
