@@ -24,6 +24,20 @@ unzip sdk.zip
 sudo cp Samples/common/inc/* /usr/include/
 }
 
+#Compile opus
+
+compileOpus(){
+echo "Compile opus"
+cd ~/ffmpeg_sources
+git clone git://git.opus-codec.org/opus.git
+cd opus
+./autogen.sh
+./configure --enable-static --enable-shared
+make
+make install
+ldconfig
+}
+
 #Compile yasm
 compileYasm(){
 echo "Compiling yasm"
@@ -147,6 +161,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-libopus \
   --enable-libtheora \
   --enable-libvorbis \
+  --enable-libopus \
   --enable-libvpx \
   --enable-libx265 \
   --enable-libx264 \
@@ -164,6 +179,7 @@ mkdir ffmpeg_sources
 installLibs
 installSDK
 compileYasm
+compileOpus
 compileLibX264
 compileLibX265
 compileLibfdkcc
