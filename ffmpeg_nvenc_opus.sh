@@ -8,7 +8,7 @@ installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
 sudo apt-get -y --force-yes install curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
-  libtheora-dev libtool libvdpau-dev libvorbis-dev pkg-config texi2html zlib1g-dev
+  libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
 }
 
 #Install nvidia SDK
