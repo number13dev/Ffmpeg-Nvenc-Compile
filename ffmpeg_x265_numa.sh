@@ -19,9 +19,10 @@ cd ~/ffmpeg_sources
 wget -O ${NUMA_LIB} "ftp://oss.sgi.com/www/projects/libnuma/download/${NUMA_LIB}"   cd ${SOURCE_PREFIX}
 tar xfzv ${NUMA_LIB}
 cd ${NUMA_PATH}
-./configure --prefix="$HOME/ffmpeg_build"
+./configure --prefix="$HOME/ffmpeg_build" --disable-shared
 make
 make install
+make distclean
 }
 
 compileLibX265(){
