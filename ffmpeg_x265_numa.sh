@@ -11,7 +11,7 @@ sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercu
   libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
 }
 
-compileLibNuma {
+compileLibNuma() {
 echo "Compiling libnuma"
 cd ~/ffmpeg_sources
    NUMA_LIB="numactl-2.0.11.tar.gz"
