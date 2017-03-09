@@ -11,6 +11,19 @@ sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercu
   libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
 }
 
+compileLibNuma {
+echo "Compiling libnuma"
+cd ~/ffmpeg_sources
+   NUMA_LIB="numactl-2.0.11.tar.gz"
+   NUMA_PATH=$(basename ${NUMA_LIB} .tar.gz)
+wget -O ${NUMA_LIB} "ftp://oss.sgi.com/www/projects/libnuma/download/${NUMA_LIB}"   cd ${SOURCE_PREFIX}
+tar xfzv ${NUMA_LIB}
+cd ${NUMA_PATH}
+./configure --prefix="$HOME/ffmpeg_build"
+make
+make install
+}
+
 compileLibX265(){
 echo "Compiling libx265"
 cd ~/ffmpeg_sources
@@ -61,6 +74,7 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
+compileLibNuma
 compileLibX265
 compileFfmpeg
 echo "Complete!"
