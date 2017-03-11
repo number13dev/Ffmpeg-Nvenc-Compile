@@ -14,7 +14,7 @@ sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercu
 compileLibNuma() {
 echo "Compiling libnuma"
 cd ~/ffmpeg_sources
-   NUMA_LIB="numactl-2.0.11.tar.gz"
+   NUMA_LIB="numactl-2.0.10.tar.gz"
    NUMA_PATH=$(basename ${NUMA_LIB} .tar.gz)
 wget -O ${NUMA_LIB} "ftp://oss.sgi.com/www/projects/libnuma/download/${NUMA_LIB}"
 tar xfzv ${NUMA_LIB}
