@@ -21,7 +21,7 @@ tar xfzv ${NUMA_LIB}
 cd ${NUMA_PATH}
 make clean
 ./autogen.sh
-./configure --prefix="$HOME/ffmpeg_build" --enable-static --disable-shared
+./configure --prefix="$HOME/ffmpeg_build"
 make
 make install
 make distclean
@@ -46,7 +46,7 @@ cd ~/ffmpeg_sources
 wget https://bitbucket.org/multicoreware/x265/downloads/x265_${X265VERSION}.tar.gz
 tar xzvf x265_${X265VERSION}.tar.gz
 cd x265_${X265VERSION}
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ./source
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" ./source
 PATH="$HOME/bin:$PATH" make
 make install
 make distclean
