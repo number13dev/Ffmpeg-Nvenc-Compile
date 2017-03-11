@@ -79,8 +79,8 @@ cd ~/ffmpeg_sources
 PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   --pkg-config-flags="--static" \
   --prefix="$HOME/ffmpeg_build" \
-  --extra-cflags="-I$HOME/ffmpeg_build/include -march=skylake" \
-  --extra-ldflags="-L$HOME/ffmpeg_build/lib -march=skylake" \
+  --extra-cflags="-I$HOME/ffmpeg_build/include \
+  --extra-ldflags="-L$HOME/ffmpeg_build/lib \
   --bindir="/ffmpeg" \
   --enable-static \
   --enable-gpl \
