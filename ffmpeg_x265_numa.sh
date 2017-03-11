@@ -37,6 +37,18 @@ make install
 make distclean
 }
 
+compileLibX265_19(){
+echo "Compiling libx265"
+cd ~/ffmpeg_sources
+wget https://bitbucket.org/multicoreware/x265/downloads/x265_1.9.tar.gz
+tar xzvf x265_1.9.tar.gz
+cd x265_1.9
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
+PATH="$HOME/bin:$PATH" make
+make install
+make distclean
+}
+
 compileLibX265(){
 echo "Compiling libx265"
 cd ~/ffmpeg_sources
@@ -87,6 +99,6 @@ cd ~
 mkdir ffmpeg_sources
 installLibs
 compileYasm
-compileLibX265
+compileLibX265_19
 compileFfmpeg
 echo "Complete!"
