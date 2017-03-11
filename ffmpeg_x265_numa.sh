@@ -19,7 +19,9 @@ cd ~/ffmpeg_sources
 wget -O ${NUMA_LIB} "ftp://oss.sgi.com/www/projects/libnuma/download/${NUMA_LIB}"
 tar xfzv ${NUMA_LIB}
 cd ${NUMA_PATH}
-./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+make clean
+./autogen.sh
+./configure --prefix="$HOME/ffmpeg_build" --enable-static --disable-shared
 make
 make install
 make distclean
