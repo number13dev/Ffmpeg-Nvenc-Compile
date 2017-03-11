@@ -21,7 +21,7 @@ tar xfzv ${NUMA_LIB}
 cd ${NUMA_PATH}
 make clean
 ./configure
-make
+make -j 16
 make install
 }
 
@@ -32,7 +32,7 @@ wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 tar xzvf yasm-1.3.0.tar.gz
 cd yasm-1.3.0
 ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
-make
+make -j 16
 make install
 make distclean
 }
@@ -56,7 +56,7 @@ cd ~/ffmpeg_sources
 hg clone https://bitbucket.org/multicoreware/x265
 cd ~/ffmpeg_sources/x265/build/linux
 PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
-PATH="$HOME/bin:$PATH" make
+PATH="$HOME/bin:$PATH" make -j 16
 make install
 make distclean
 }
@@ -79,8 +79,8 @@ cd ~/ffmpeg_sources
 PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   --pkg-config-flags="--static" \
   --prefix="$HOME/ffmpeg_build" \
-  --extra-cflags="-I$HOME/ffmpeg_build/include -march=skylake" \
-  --extra-ldflags="-L$HOME/ffmpeg_build/lib -march=skylake" \
+  --extra-cflags="-I$HOME/ffmpeg_build/include" \
+  --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --bindir="/ffmpeg" \
   --enable-static \
   --enable-gpl \
@@ -89,7 +89,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --disable-ffplay --disable-ffprobe --disable-ffserver \
   --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
   --enable-nonfree
-PATH="$HOME/bin:$PATH" make -j 8
+PATH="$HOME/bin:$PATH" make -j 16
 make install
 make distclean
 hash -r
