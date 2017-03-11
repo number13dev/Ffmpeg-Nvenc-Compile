@@ -20,11 +20,9 @@ wget -O ${NUMA_LIB} "ftp://oss.sgi.com/www/projects/libnuma/download/${NUMA_LIB}
 tar xfzv ${NUMA_LIB}
 cd ${NUMA_PATH}
 make clean
-./autogen.sh
 ./configure
 make
 make install
-make distclean
 }
 
 compileYasm(){
@@ -57,7 +55,7 @@ echo "Compiling libx265"
 cd ~/ffmpeg_sources
 hg clone https://bitbucket.org/multicoreware/x265
 cd ~/ffmpeg_sources/x265/build/linux
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" ../../source
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
 PATH="$HOME/bin:$PATH" make
 make install
 make distclean
@@ -103,6 +101,6 @@ mkdir ffmpeg_sources
 installLibs
 compileLibNuma
 compileYasm
-compileLibX265version
+compileLibX265
 compileFfmpeg
 echo "Complete!"
