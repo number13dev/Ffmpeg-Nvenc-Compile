@@ -25,6 +25,18 @@ make install
 make distclean
 }
 
+compileYasm(){
+echo "Compiling yasm"
+cd ~/ffmpeg_sources
+wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+tar xzvf yasm-1.3.0.tar.gz
+cd yasm-1.3.0
+./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+make
+make install
+make distclean
+}
+
 compileLibX265(){
 echo "Compiling libx265"
 cd ~/ffmpeg_sources
@@ -75,6 +87,7 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
+compileYasm
 compileLibX265
 compileFfmpeg
 echo "Complete!"
