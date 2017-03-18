@@ -37,6 +37,20 @@ make install
 make distclean
 }
 
+#Compile libfdk-acc
+compileLibfdkcc(){
+echo "Compiling libfdk-cc"
+#sudo apt-get install unzip
+cd ~/ffmpeg_sources
+git clone https://github.com/mstorsjo/fdk-aac.git
+cd fdk-aac
+autoreconf -fiv
+./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+make
+make install
+make distclean
+}
+
 compileLibX265version(){
 echo "Compiling libx265"
 X265VERSION="1.9"
@@ -85,6 +99,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-static \
   --enable-gpl \
   --enable-libx265 \
+  --enable-libfdk-aac \
   --enable-pthreads \
   --disable-ffplay --disable-ffprobe --disable-ffserver \
   --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
