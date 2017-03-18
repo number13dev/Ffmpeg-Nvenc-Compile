@@ -116,6 +116,7 @@ mkdir ffmpeg_sources
 installLibs
 compileLibNuma
 compileYasm
+compileLibfdkcc
 compileLibX265
 compileFfmpeg
 echo "Complete!"
