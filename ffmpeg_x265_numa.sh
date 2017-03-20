@@ -46,7 +46,7 @@ git clone https://github.com/mstorsjo/fdk-aac.git
 cd fdk-aac
 autoreconf -fiv
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
-make
+make -j 16
 make install
 make distclean
 }
@@ -58,7 +58,7 @@ cd ~/ffmpeg_sources
 wget https://bitbucket.org/multicoreware/x265/downloads/x265_${X265VERSION}.tar.gz
 tar xzvf x265_${X265VERSION}.tar.gz
 cd x265_${X265VERSION}
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ./source
 PATH="$HOME/bin:$PATH" make -j 16
 make install
 make distclean
