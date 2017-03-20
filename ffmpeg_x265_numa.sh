@@ -58,8 +58,8 @@ cd ~/ffmpeg_sources
 wget https://bitbucket.org/multicoreware/x265/downloads/x265_${X265VERSION}.tar.gz
 tar xzvf x265_${X265VERSION}.tar.gz
 cd x265_${X265VERSION}
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" ./source
-PATH="$HOME/bin:$PATH" make
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
+PATH="$HOME/bin:$PATH" make -j 16
 make install
 make distclean
 }
@@ -117,6 +117,6 @@ installLibs
 compileLibNuma
 compileYasm
 compileLibfdkcc
-compileLibX265
+compileLibX265version
 compileFfmpeg
 echo "Complete!"
