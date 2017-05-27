@@ -9,7 +9,7 @@ echo "Installing prerequosites"
 sudo apt-get update
 sudo apt-get -y --force-yes install curl unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
   libsdl1.2-dev libtool libva-dev libvdpau-dev libxcb1-dev libxcb-shm0-dev \
-  libxcb-xfixes0-dev pkg-config texi2html zlib1g-dev
+  libxcb-xfixes0-dev pkg-config texi2html zlib1g-dev yasm
 }
 
 #Install nvidia SDK
@@ -90,7 +90,7 @@ cd ~
 mkdir ffmpeg_sources
 installLibs
 installSDK
-compileYasm
+#compileYasm
 compileLibfdkcc
 compileFfmpeg
 echo "Complete!"
