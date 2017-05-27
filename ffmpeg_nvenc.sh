@@ -77,6 +77,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-pthreads \
   --enable-libfdk-aac \
   --enable-nvenc \
+  --disable-yasm \
   --disable-ffplay --disable-ffprobe --disable-ffserver \
   --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
   --enable-nonfree
