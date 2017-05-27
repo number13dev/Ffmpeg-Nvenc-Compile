@@ -148,8 +148,6 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-libtheora \
   --enable-libvorbis \
   --enable-libvpx \
-  --enable-libx265 \
-  --enable-libx264 \
   --enable-nvenc \
   --enable-nonfree
 PATH="$HOME/bin:$PATH" make -j
@@ -164,8 +162,8 @@ mkdir ffmpeg_sources
 installLibs
 installSDK
 compileYasm
-compileLibX264
-compileLibX265
+#compileLibX264
+#compileLibX265
 compileLibfdkcc
 compileLibMP3Lame
 compileLibOpus
