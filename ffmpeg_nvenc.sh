@@ -32,7 +32,7 @@ wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 tar xzvf yasm-1.3.0.tar.gz
 cd yasm-1.3.0
 ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
-make
+make -j 16
 make install
 make distclean
 }
@@ -46,7 +46,7 @@ git clone https://github.com/mstorsjo/fdk-aac.git
 cd fdk-aac
 autoreconf -fiv
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
-make
+make -j 16
 make install
 make distclean
 }
@@ -69,17 +69,18 @@ cd ~/ffmpeg_sources
 PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   --pkg-config-flags="--static" \
   --prefix="$HOME/ffmpeg_build" \
-  --extra-cflags="-I$HOME/ffmpeg_build/include -march=skylake" \
-  --extra-ldflags="-L$HOME/ffmpeg_build/lib -march=skylake" \
+  --extra-cflags="-I$HOME/ffmpeg_build/include" \
+  --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --bindir="/ffmpeg" \
+  --enable-static \
   --enable-gpl \
   --enable-pthreads \
-  --enable-libass \
   --enable-libfdk-aac \
-  --enable-libfreetype \
   --enable-nvenc \
+  --disable-ffplay --disable-ffprobe --disable-ffserver \
+  --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
   --enable-nonfree
-PATH="$HOME/bin:$PATH" make -j
+PATH="$HOME/bin:$PATH" make -j 16
 make install
 make distclean
 hash -r
