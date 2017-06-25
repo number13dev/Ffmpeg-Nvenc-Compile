@@ -18,9 +18,9 @@ echo "Installing the nVidia NVENC SDK."
 cd ~/ffmpeg_sources
 mkdir SDK
 cd SDK
-wget https://raw.githubusercontent.com/Elrondo46/nvidia-sdk-manjaro/master/Video_Codec_SDK_7.1.9.zip -O sdk.zip
+wget http://developer.download.nvidia.com/assets/cuda/files/nvidia_video_sdk_6.0.1.zip -O sdk.zip
 unzip sdk.zip
-.cd nvidia_video_sdk_7.1.9
+.cd nvidia_video_sdk_6.0.1
 sudo cp Samples/common/inc/* /usr/include/
 }
 
