@@ -20,7 +20,7 @@ mkdir SDK
 cd SDK
 wget https://raw.githubusercontent.com/Elrondo46/nvidia-sdk-manjaro/master/Video_Codec_SDK_7.1.9.zip -O sdk.zip
 unzip sdk.zip
-cd nvidia_video_sdk_7.1.9
+cd Video_Codec_SDK_7.1.9
 sudo cp Samples/common/inc/* /usr/include/
 }
 
