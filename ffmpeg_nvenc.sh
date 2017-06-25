@@ -58,7 +58,7 @@ cd ~/ffmpeg_sources
 #tar xjvf ffmpeg-snapshot.tar.bz2
 #cd ffmpeg
 #git clone https://github.com/FFmpeg/FFmpeg.git ffmpeg
-    ffmpeg_version="3.1.9"
+    ffmpeg_version="3.1.3"
     if [ ! -f  ffmpeg-${ffmpeg_version}.tar.bz2 ]; then
         wget http://ffmpeg.org/releases/ffmpeg-${ffmpeg_version}.tar.bz2
     fi
