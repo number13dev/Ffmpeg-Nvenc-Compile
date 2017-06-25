@@ -18,9 +18,9 @@ echo "Installing the nVidia NVENC SDK."
 cd ~/ffmpeg_sources
 mkdir SDK
 cd SDK
-wget https://faubox.rrze.uni-erlangen.de/dl/fiNtBGvGM3sbYEX2pTKrGwHz/Video_Codec_SDK_7.0.1.zip -O sdk.zip
+wget https://raw.githubusercontent.com/Elrondo46/nvidia-sdk-manjaro/master/Video_Codec_SDK_7.1.9.zip -O sdk.zip
 unzip sdk.zip
-.cd nvidia_video_sdk_7.0.1
+.cd nvidia_video_sdk_7.1.9
 sudo cp Samples/common/inc/* /usr/include/
 }
 
@@ -58,7 +58,7 @@ cd ~/ffmpeg_sources
 #tar xjvf ffmpeg-snapshot.tar.bz2
 #cd ffmpeg
 #git clone https://github.com/FFmpeg/FFmpeg.git ffmpeg
-    ffmpeg_version="snapshot"
+    ffmpeg_version="3.1.9"
     if [ ! -f  ffmpeg-${ffmpeg_version}.tar.bz2 ]; then
         wget http://ffmpeg.org/releases/ffmpeg-${ffmpeg_version}.tar.bz2
     fi
