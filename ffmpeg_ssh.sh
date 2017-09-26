@@ -8,11 +8,33 @@ installLibs(){
 echo "Installing prerequosites"
 sudo apt-get update
 sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercurial git autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
-  libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
+  libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev yasm
 }
 
 
+compileLibfdkcc(){
+echo "Compiling libfdk-cc"
+#sudo apt-get install unzip
+cd ~/ffmpeg_sources
+git clone https://github.com/mstorsjo/fdk-aac.git
+cd fdk-aac
+autoreconf -fiv
+./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+make -j 16
+make install
+make distclean
+}
 
+installSDK(){
+echo "Installing the nVidia NVENC SDK."
+cd ~/ffmpeg_sources
+mkdir SDK
+cd SDK
+wget https://raw.githubusercontent.com/Elrondo46/nvidia-sdk-manjaro/master/Video_Codec_SDK_7.1.9.zip -O sdk.zip
+unzip sdk.zip
+cd Video_Codec_SDK_7.1.9
+sudo cp Samples/common/inc/* /usr/include/
+}
 
 
 Compile LibSSL
@@ -44,32 +66,6 @@ make install
 make distclean
 }
 
-#Compile yasm
-#compileYasm(){
-#echo "Compiling yasm"
-#cd ~/ffmpeg_sources
-#wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
-#tar xzvf yasm-1.3.0.tar.gz
-#cd yasm-1.3.0
-#./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
-#make
-#make install
-#make distclean
-#}
-
-#Compile libx264
-#compileLibX264(){
-#echo "Compiling libx264"
-#cd ~/ffmpeg_sources
-#wget http://download.videolan.org/pub/x264/snapshots/last_x264.tar.bz2
-#tar xjvf last_x264.tar.bz2
-#cd x264-snapshot*
-#PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static --disable-shared
-#PATH="$HOME/bin:$PATH" make
-#make install
-#make distclean
-#}
-
 #Compile ffmpeg
 compileFfmpeg(){
 echo "Compiling ffmpeg"
@@ -94,6 +90,8 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-static \
   --enable-gpl \
   --enable-libssh \
+  --enable-libfdk-aac \
+  --enable-nvenc \
   --disable-yasm \
   --disable-ffplay --disable-ffprobe --disable-ffserver \
   --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
@@ -109,7 +107,7 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
-#compileYasm
-#compileLibX264
+compileLibfdkcc
+installSDK
 compileFfmpeg
 echo "Complete!"
