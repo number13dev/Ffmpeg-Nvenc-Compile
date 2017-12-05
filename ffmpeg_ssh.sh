@@ -22,6 +22,18 @@ make install
 make distclean
 }
 
+compileLibX264(){
+echo "Compiling libx264"
+cd ~/ffmpeg_sources
+wget http://download.videolan.org/pub/x264/snapshots/last_x264.tar.bz2
+tar xjvf last_x264.tar.bz2
+cd x264-snapshot*
+PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
+PATH="$HOME/bin:$PATH" make -j 16
+make install
+make distclean
+}
+
 compileLibfdkcc(){
 echo "Compiling libfdk-cc"
 #sudo apt-get install unzip
@@ -102,6 +114,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-libssh \
   --enable-libfdk-aac \
   --enable-libx265 \
+  --enable-libx264 \
   --enable-nvenc \
   --disable-ffplay --disable-ffprobe --disable-ffserver \
   --disable-doc --disable-htmlpages --disable-manpages --disable-podpages --disable-txtpages \
@@ -117,6 +130,7 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
+compileLibX264
 compileLibfdkcc
 installSDK
 compileLibX265
