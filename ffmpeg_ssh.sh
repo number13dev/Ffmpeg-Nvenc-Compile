@@ -11,6 +11,17 @@ sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercu
   libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev yasm nasm
 }
 
+compileNasm(){
+cd ~/ffmpeg_sources
+wget http://www.nasm.us/pub/nasm/releasebuilds/2.13.01/nasm-2.13.01.tar.bz2
+tar xjvf nasm-2.13.01.tar.bz2
+cd nasm-2.13.01
+./autogen.sh
+PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+make -j 16
+make install
+}
+
 compileLibX265(){
 echo "Compiling libx265"
 cd ~/ffmpeg_sources
