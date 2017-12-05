@@ -11,6 +11,16 @@ sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercu
   libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev yasm
 }
 
+compileLibX265(){
+echo "Compiling libx265"
+cd ~/ffmpeg_sources
+hg clone https://bitbucket.org/multicoreware/x265
+cd ~/ffmpeg_sources/x265/build/linux
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source
+PATH="$HOME/bin:$PATH" make -j 16
+make install
+make distclean
+}
 
 compileLibfdkcc(){
 echo "Compiling libfdk-cc"
@@ -91,6 +101,7 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
   --enable-gpl \
   --enable-libssh \
   --enable-libfdk-aac \
+  --enable-libx265 \
   --enable-nvenc \
   --disable-yasm \
   --disable-ffplay --disable-ffprobe --disable-ffserver \
@@ -109,5 +120,6 @@ mkdir ffmpeg_sources
 installLibs
 compileLibfdkcc
 installSDK
+compileLibX265
 compileFfmpeg
 echo "Complete!"
