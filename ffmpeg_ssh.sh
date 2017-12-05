@@ -141,6 +141,7 @@ hash -r
 cd ~
 mkdir ffmpeg_sources
 installLibs
+compileNasm
 compileLibX264
 compileLibfdkcc
 installSDK
