@@ -14,7 +14,7 @@ sudo apt-get -y --force-yes install curl libssh-dev libssl-dev unzip cmake mercu
 compileNasm(){
 cd ~/ffmpeg_sources
 wget http://www.nasm.us/pub/nasm/releasebuilds/2.13.01/nasm-2.13.01.tar.bz2
-tar xjvf nasm-2.13.01.tar.bz2
+tar xfzv nasm-2.13.01.tar.bz2
 cd nasm-2.13.01
 ./autogen.sh
 PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
@@ -27,7 +27,7 @@ cd ~/ffmpeg_sources
 wget http://pkgs.fedoraproject.org/repo/pkgs/numactl/numactl-2.0.11.tar.gz
 tar xjvf numactl-2.0.11.tar.gz
 cd numactl-2.0.11
-PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
+PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
 PATH="$HOME/bin:$PATH" make -j 16
 make install
 make distclean
