@@ -22,6 +22,17 @@ make -j 16
 make install
 }
 
+compileNuma(){
+cd ~/ffmpeg_sources
+wget http://pkgs.fedoraproject.org/repo/pkgs/numactl/numactl-2.0.11.tar.gz
+tar xjvf numactl-2.0.11.tar.gz
+cd numactl-2.0.11
+PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
+PATH="$HOME/bin:$PATH" make -j 16
+make install
+make distclean
+}
+
 compileLibX265(){
 echo "Compiling libx265"
 cd ~/ffmpeg_sources
@@ -142,6 +153,7 @@ cd ~
 mkdir ffmpeg_sources
 installLibs
 compileNasm
+compileNuma
 compileLibX264
 compileLibfdkcc
 installSDK
