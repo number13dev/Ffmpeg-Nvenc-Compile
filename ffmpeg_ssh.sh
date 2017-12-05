@@ -27,7 +27,7 @@ cd ~/ffmpeg_sources
 wget http://pkgs.fedoraproject.org/repo/pkgs/numactl/numactl-2.0.11.tar.gz/d3bc88b7ddb9f06d60898f4816ae9127/numactl-2.0.11.tar.gz
 tar xfzv numactl-2.0.11.tar.gz
 cd numactl-2.0.11
-PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
 PATH="$HOME/bin:$PATH" make -j 16
 make install
 make distclean
