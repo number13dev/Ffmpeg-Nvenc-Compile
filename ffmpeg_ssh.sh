@@ -153,7 +153,7 @@ cd ~
 mkdir ffmpeg_sources
 installLibs
 compileNasm
-compileNuma
+//compileNuma
 compileLibX264
 compileLibfdkcc
 installSDK
